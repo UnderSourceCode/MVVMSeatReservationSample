@@ -1,0 +1,98 @@
+﻿@model MVVMSeatReservationSample.Models.Reservation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<table>
+    <thead><tr>
+        <th>名前</th><th>クラス</th><th>料金</th><th></th>
+    </tr></thead>
+    <tbody data-bind="foreach: seats">
+        <tr>
+            <td><input data-bind="value: name" /></td>
+            <td><select data-bind="options: $root.availableClasses, value: seatClass, optionsText: 'Name'"></select></td>
+            <td align="right">&yen;<span data-bind="text: formattedPrice"></span></td>
+            <td><a href="#" data-bind="click: $root.removeSeat">削除</a></td>
+        </tr>    
+    </tbody>
+</table>
+
+<button data-bind="click: addSeat, enable: seats().length < 5">追加</button>
+<button data-bind="click: saveSeats">保存</button>
+
+<h3>
+    予約合計<br />
+    席数 : <span data-bind="text: seats().length"></span>席<br />
+    金額 : &yen;<span data-bind="text: totalPrice()"></span>
+</h3>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script type="text/javascript">
+    // Class to represent a row in the seat reservations grid
+    function SeatReservation(name, initialClass) {
+        var self = this;
+        self.name = name;
+        self.seatClass = ko.observable(initialClass);
+
+        self.formattedPrice = ko.computed(function () {
+            return formatPrice(self.seatClass().Price);
+        });
+
+        self.SeatLevel = ko.computed(function(){
+            return self.seatClass().SeatLevel;
+        });
+    }
+
+    // Overall viewmodel for this screen, along with initial state
+    function ReservationsViewModel() {
+        var self = this;
+
+        // Non-editable data
+        $.getJSON("@Url.Action("IndexJson", "SeatClasses")", function (data) {
+            self.availableClasses = data;
+        });
+        
+        // Editable data
+        self.seats = ko.observableArray();
+
+        // Computed data
+        self.totalPrice = ko.computed(function () {
+            var total = 0;
+            for (var i = 0; i < self.seats().length; i++)
+                total += self.seats()[i].seatClass().Price;
+            return formatPrice(total);
+        });
+
+        // Operations
+        self.addSeat = function () {
+            self.seats.push(new SeatReservation("", self.availableClasses[0]));
+        }
+        self.removeSeat = function (seat) { 
+            self.seats.remove(seat) 
+        }
+        self.saveSeats = function () {
+            $.ajax({
+                url: "/Reservations/Save/",
+                type: 'post',
+                data: ko.toJSON(this),
+                contentType: 'application/json',
+                success: function (result) {
+                    alert(result);
+                }
+            });
+        }
+    }
+    
+    function formatPrice(str) {
+        var num = new String(str).replace(/,/g, "");
+        while (num != (num = num.replace(/^(-?\d+)(\d{3})/, "$1,$2")));
+        return num;
+    }
+
+    ko.applyBindings(new ReservationsViewModel());
+    
+</script>

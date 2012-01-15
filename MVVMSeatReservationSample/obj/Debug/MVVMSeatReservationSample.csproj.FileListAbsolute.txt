@@ -1,0 +1,16 @@
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\MVVMSeatReservationSample.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\MVVMSeatReservationSample.pdb
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\EntityFramework.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\Microsoft.Web.Infrastructure.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\Microsoft.Web.Optimization.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.Helpers.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.Mvc.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.Providers.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.Razor.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.WebPages.Deployment.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.WebPages.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\System.Web.WebPages.Razor.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\bin\EntityFramework.xml
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\obj\Debug\ResolveAssemblyReference.cache
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\obj\Debug\MVVMSeatReservationSample.dll
+D:\ASP.NET MVC\MVVMSeatReservationSample\MVVMSeatReservationSample\obj\Debug\MVVMSeatReservationSample.pdb

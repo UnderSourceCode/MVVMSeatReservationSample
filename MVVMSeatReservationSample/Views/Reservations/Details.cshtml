@@ -1,0 +1,29 @@
+﻿@model MVVMSeatReservationSample.Models.Reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Reservation</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReserveDateTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReserveDateTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ReservationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
